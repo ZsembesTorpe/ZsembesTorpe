@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BioShop</string>
+    <string name="email">Email</string>
+    <string name="password">jelszó</string>
+    <string name="loginB">Bejelentkezés</string>
+    <string name="createB">Regisztráció</string>
+    <string name="passwordAgain">Jelszó újra</string>
+    <string name="registerbutton">Regisztráció</string>
+    <string name="vissza">vissza</string>
+</resources>

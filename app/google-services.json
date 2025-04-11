@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "348500616194",
+    "project_id": "bioshop-139d0",
+    "storage_bucket": "bioshop-139d0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348500616194:android:81c84c1af0cd36c17e331b",
+        "android_client_info": {
+          "package_name": "com.example.bioshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348500616194-3brgh1gat11n3e1cuol730nlamsmfbaj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bioshop",
+            "certificate_hash": "39d230223690527fde277e25711fab3c5086b4e7"
+          }
+        },
+        {
+          "client_id": "348500616194-s96dqb3stq4u0cd4m0eg5a5ohkp37u1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmmyqwVJ5BgiiFwsAswZmB1qtbzXyBVV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348500616194-s96dqb3stq4u0cd4m0eg5a5ohkp37u1u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
