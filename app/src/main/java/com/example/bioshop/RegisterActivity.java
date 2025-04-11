@@ -85,6 +85,7 @@ mAuth.createUserWithEmailAndPassword(emailS,password).addOnCompleteListener(this
     public void onComplete(@NonNull Task<AuthResult> task) {
         if (task.isSuccessful()){
             Log.d(LOG_TAG,"Sikeres regisztráció!");
+            overridePendingTransition(R.anim.animate_fade_enter,R.anim.animate_fade_exit);
             //főoldalt csináld meg ide!
             shopping();
         }else{
