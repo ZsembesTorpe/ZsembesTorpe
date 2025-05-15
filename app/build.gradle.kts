@@ -46,4 +46,10 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.android.gms:play-services-auth:21.3.0")
+
+    implementation ("androidx.recyclerview:recyclerview:1.1.0")
+    implementation ("androidx.recyclerview:recyclerview-selection:1.1.0")
+    implementation ("com.github.bumptech.glide:glide:3.7.0")
+    implementation ("androidx.cardview:cardview:1.0.0")
+
 }

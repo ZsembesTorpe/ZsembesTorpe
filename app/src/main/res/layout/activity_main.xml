@@ -53,6 +53,8 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/buttoncolor"
+        android:textColor="@color/black"
         android:text="@string/loginB"
         android:onClick="login"
 
@@ -66,11 +68,13 @@
         android:layout_height="wrap_content"
         android:text="Bejelentkezés Google fiókkal"
         android:onClick="googleLogin"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/buttoncolor"
         app:layout_constraintTop_toBottomOf="@+id/loginButton"
         app:layout_constraintVertical_bias="0.0" />
     <Button
@@ -79,6 +83,8 @@
         android:layout_height="wrap_content"
         android:text="@string/createB"
         android:onClick="register"
+        android:backgroundTint="@color/buttoncolor"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

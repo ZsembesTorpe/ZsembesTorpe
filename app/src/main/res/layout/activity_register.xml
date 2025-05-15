@@ -91,6 +91,8 @@
             android:layout_marginRight="15dp"
             android:text="@string/registerbutton"
             android:onClick="register"
+            android:backgroundTint="@color/green"
+            android:textColor="@color/black"
             />
 
         <Button
@@ -101,6 +103,8 @@
             android:layout_marginRight="15dp"
             android:text="@string/vissza"
             android:onClick="cancel"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/white"
             />
     </LinearLayout>
 

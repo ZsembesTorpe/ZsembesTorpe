@@ -7,4 +7,63 @@
     <string name="passwordAgain">Jelszó újra</string>
     <string name="registerbutton">Regisztráció</string>
     <string name="vissza">vissza</string>
+    <string name="item_placeholder">Leírás</string>
+    <string name="item_info_placeholder">Leírás a termékről</string>
+
+
+    <string-array name="termeknevek">
+    <item>BIO Búza finomliszt</item>
+    <item>BIO Panírmorzsa</item>
+    <item>BIO kefír</item>
+    <item>BIO gyümölcskosár</item>
+    <item>BIO zöldségkosár</item>
+    <item>BIO tej</item>
+    <item>BIO tönkölybúzás sóspálcika</item>
+    <item>BIO növény tápoldat</item>
+
+</string-array>
+
+    <string-array name="termekleirasok" >
+        <item>BL 55-ös gluténmentes finomliszt. A Bl a búzalisztet, míg az 55 a hamutartalomra utal.</item>
+        <item>Glutén,tej és tojásmentes panírmorzsa.</item>
+        <item>BIO kefír 150g-os kiszerelésben. Nem laktózmentes.</item>
+        <item>Vegyes, friss gyümölcsöket tartalmaz két kilogrammig.</item>
+        <item>Vegyes, friss zöldségeket tartalmaz két kilogrammig.</item>
+        <item>Bio 1,5%-os tej,nem laktózmentes.</item>
+        <item>Teljes kiőrlésű tönkölybúzalisztből készül. Egy csomag 45g.</item>
+        <item>100%-ban természetes összetevőkből készült növényvédő szer, amely egy literes.</item>
+
+    </string-array>
+<array name="ertekelesek" >
+    <item>5</item>
+    <item>4.5</item>
+    <item>3</item>
+    <item>3.9</item>
+    <item>4.7</item>
+    <item>5</item>
+    <item>4.2</item>
+    <item>4.4</item>
+
+</array>
+<array name="termekkepek">
+    <item>@drawable/bio_buza_finomliszt_kilos</item>
+    <item>@drawable/bio_panirmorza</item>
+    <item>@drawable/bio_kefir</item>
+    <item>@drawable/bio_gyumolcskosar</item>
+    <item>@drawable/bio_zoldsegkosar</item>
+    <item>@drawable/bio_tej</item>
+    <item>@drawable/tonkolybuza_sospalcika_negyvenot_g</item>
+    <item>@drawable/bio_novenytap</item>
+
+</array>
+    <array name="arak">
+        <item>625 Ft</item>
+        <item>700 Ft</item>
+        <item>450 Ft</item>
+        <item>5000 Ft</item>
+        <item>14500 Ft</item>
+        <item>14750 Ft</item>
+        <item>275 Ft</item>
+        <item>2500 Ft</item>
+    </array>
 </resources>

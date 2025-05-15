@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bc_color"
+    android:layout_margin="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/termekkep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+
+            />
+
+        <TextView
+            android:id="@+id/termekcim"
+            style="@style/ItemDetailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/termekkep"
+            android:padding="8dp"
+            android:text="@string/item_placeholder"
+            android:textColor="?android:textColorSecondary" />
+
+        <RatingBar
+            android:id="@+id/ertekeles"
+            style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/termekcim"
+            android:layout_marginStart="8dp"
+            android:isIndicator="true" />
+
+        <TextView
+            android:id="@+id/termekleiras"
+            style="@style/ItemDetailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ertekeles"
+            android:padding="8dp"
+            android:text="@string/item_info_placeholder" />
+
+        <TextView
+            android:id="@+id/ar"
+            style="@style/ItemDetailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/termekleiras"
+            android:layout_marginBottom="12dp"
+            android:padding="8dp"
+            android:text="ár"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageButton
+            android:id="@+id/kosarba"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ar"
+            android:background="@drawable/bioshop_vagott"
+            android:layout_centerHorizontal="true"/>
+
+
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
