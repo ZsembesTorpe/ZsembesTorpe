@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/bc_color"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:radius="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/item_list_color"
+        >
 
         <ImageView
-            android:id="@+id/termekkep"
+            android:id="@+id/itemImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -18,55 +22,75 @@
             />
 
         <TextView
-            android:id="@+id/termekcim"
+            android:id="@+id/itemTitle"
             style="@style/ItemDetailText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/termekkep"
+            android:layout_below="@id/itemImage"
             android:padding="8dp"
             android:text="@string/item_placeholder"
             android:textColor="?android:textColorSecondary" />
 
         <RatingBar
-            android:id="@+id/ertekeles"
+            android:id="@+id/ratingBar"
             style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/termekcim"
+            android:layout_below="@id/itemTitle"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:isIndicator="true" />
 
         <TextView
-            android:id="@+id/termekleiras"
+            android:id="@+id/subTitle"
             style="@style/ItemDetailText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ertekeles"
+            android:layout_below="@id/ratingBar"
             android:padding="8dp"
             android:text="@string/item_info_placeholder" />
+        <TextView
+            android:id="@+id/quantityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mennyiség: 1 db"
+            android:visibility="gone"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"/>
 
         <TextView
-            android:id="@+id/ar"
+            android:id="@+id/price"
             style="@style/ItemDetailText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/termekleiras"
+            android:layout_below="@id/subTitle"
             android:layout_marginBottom="12dp"
             android:padding="8dp"
             android:text="ár"
             android:textColor="@color/black"
             android:layout_centerHorizontal="true"/>
 
-        <ImageButton
-            android:id="@+id/kosarba"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ar"
+            android:layout_below="@+id/price"
+            android:layout_centerHorizontal="true"
+            >
+        <ImageButton
+            android:id="@+id/add_to_kosar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
             android:background="@drawable/bioshop_vagott"
-            android:layout_centerHorizontal="true"/>
+            />
+            <ImageButton
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/delete"
+                />
 
-
-
+    </LinearLayout>
 
     </RelativeLayout>
 

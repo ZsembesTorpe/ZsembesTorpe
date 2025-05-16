@@ -6,4 +6,5 @@
     <color name="bc_color">#D0F0C0</color>
     <color name="buttoncolor">#00CEC8</color>
     <color name="red">#990000</color>
+    <color name="item_list_color">#D0F0C0</color>
 </resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:visible="true">
+
+    <item
+        android:id="@+id/search_bar"
+        android:icon="@drawable/search_icon"
+        android:title="Keresés"
+        android:visible="true"
+        android:background="@color/white"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always">
+
+    </item>
+    <item
+        android:id="@+id/cart"
+        android:background="@color/white"
+        android:icon="@drawable/shopping_cart_icon"
+        android:title="Kosár"
+        android:visible="true"
+        app:actionLayout="@layout/kosarba_tett_dolgok"
+
+        app:showAsAction="always">
+
+    </item>
+    <item
+        android:id="@+id/view_selector"
+        android:enabled="true"
+        android:icon="@drawable/baseline_grid_view_24"
+        android:title="Nézet"
+        android:background="@color/white"
+        android:visible="true"
+        app:showAsAction="always">
+
+    </item>
+    <item
+        android:id="@+id/logout"
+        android:orderInCategory="2"
+        android:title="Kijelentkezés"
+        android:background="@color/white"
+        android:visible="true"
+        app:showAsAction="never">
+
+    </item>
+
+    <item
+        android:id="@+id/settings"
+        android:orderInCategory="1"
+        android:title="Beállítások"
+        android:background="@color/white"
+
+        android:visible="true"
+        app:showAsAction="never">
+
+    </item>
+
+
+
+
+
+</menu>
