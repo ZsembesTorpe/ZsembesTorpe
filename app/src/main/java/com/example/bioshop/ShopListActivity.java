@@ -65,7 +65,7 @@ public class ShopListActivity extends AppCompatActivity {
 
     private SharedPreferences preferences;
 
-    private static final int queryLimit=8;
+    private static int queryLimit=8;
     private boolean viewRow = true;
 
     @Override
@@ -102,9 +102,32 @@ public class ShopListActivity extends AppCompatActivity {
        mFireStore=FirebaseFirestore.getInstance();
        mItems=mFireStore.collection("Items");
         initializeData();
-       // queryData();
+        IntentFilter filter=new IntentFilter();
+
+        filter.addAction(Intent.ACTION_POWER_CONNECTED);
+        filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+        this.registerReceiver(pwR,filter);
 
     }
+    BroadcastReceiver pwR=new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action=intent.getAction();
+            if (action == null){
+                return;
+            }
+            switch (action) {
+                case Intent.ACTION_POWER_CONNECTED:
+                    queryLimit=8;
+                    break;
+                case Intent.ACTION_POWER_DISCONNECTED:
+                    queryLimit=4;
+                    break;
+            }
+            initializeData();
+        }
+    };
+
     //VALAMIÉRT A QUERYDATA MEGŐRÜL ÉS 6600+ ADATTAL FELTÖLTI AZ ADATBÁZIST, NEM TUDTAM MEGOLDANI EZT, SORRY
 /*private void queryData(){
     mItemsData.clear();
@@ -236,7 +259,7 @@ public class ShopListActivity extends AppCompatActivity {
         return super.onPrepareOptionsMenu(menu);
     }
 
-    public void updateAlertIcon() {
+    public void updateAlertIcon(ShoppingItem item) {
         cartItems = (cartItems + 1);
         if (0 < cartItems) {
             countTextView.setText(String.valueOf(cartItems));
@@ -247,15 +270,24 @@ public class ShopListActivity extends AppCompatActivity {
         redCircle.setVisibility((cartItems > 0) ? VISIBLE : GONE);
     }
 
-/*    @Override
-    protected void onPause() {
-        super.onPause();
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(pwR);
+    }
+    public void deleteItem(ShoppingItem item){
+        cartItems =(cartItems-1);
+        if (0 < cartItems) {
+            countTextView.setText(String.valueOf(cartItems));
+        } else {
+            countTextView.setText("");
+        }
 
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("cartItems", cartItems);
-        editor.putInt("gridNum", gridNumber);
-        editor.apply();
+        redCircle.setVisibility((cartItems > 0) ? VISIBLE : GONE);
 
-        Log.i(LOG_TAG, "onPause");
-    }*/
+    }
+    private void updateItem(ShoppingItem item){
+
+    }
+
 }
