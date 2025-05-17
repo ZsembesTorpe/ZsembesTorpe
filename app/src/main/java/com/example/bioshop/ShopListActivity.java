@@ -144,7 +144,7 @@ public class ShopListActivity extends AppCompatActivity {
                 ShoppingItem item=document.toObject(ShoppingItem.class);
                 mItemsData.add(item);
             }
-            mItemsData.clear();
+
         });
             for (int i = 0; i < itemsList.length; i++) {
                 mItems.add(new ShoppingItem(itemsList[i], itemsInfo[i], itemsPrice[i], itemRate.getFloat(i, 0),
