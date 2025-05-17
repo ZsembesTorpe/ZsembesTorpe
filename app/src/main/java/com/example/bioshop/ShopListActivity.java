@@ -102,6 +102,7 @@ public class ShopListActivity extends AppCompatActivity {
        mFireStore=FirebaseFirestore.getInstance();
        mItems=mFireStore.collection("Items");
         initializeData();
+        //queryData();
         IntentFilter filter=new IntentFilter();
 
         filter.addAction(Intent.ACTION_POWER_CONNECTED);
@@ -124,19 +125,24 @@ public class ShopListActivity extends AppCompatActivity {
                     queryLimit=4;
                     break;
             }
-            initializeData();
+            initializeData(); //ide a queryData(); jönne,csak valamiért felforgatja az android studio
         }
     };
 
-    //VALAMIÉRT A QUERYDATA MEGŐRÜL ÉS 6600+ ADATTAL FELTÖLTI AZ ADATBÁZIST, NEM TUDTAM MEGOLDANI EZT, SORRY
+    //valamiért a queryData() 6600+ adatot feltölt a FireStore-ra és nem tudom, hogy miért
+
+
 /*private void queryData(){
     mItemsData.clear();
 
-    mItems.orderBy("ar", Query.Direction.ASCENDING).limit(queryLimit).get().addOnSuccessListener(queryDocumentSnapshots -> {
-        for (QueryDocumentSnapshot document : queryDocumentSnapshots){
-            ShoppingItem item=document.toObject(ShoppingItem.class);
-            mItemsData.add(item);
-        }
+   mItems.orderBy("cartedCount", Query.Direction.ASCENDING).limit(queryLimit).get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot document : queryDocumentSnapshots){
+                ShoppingItem item=document.toObject(ShoppingItem.class);
+                item.setId(document.getId());
+                mItemsData.add(item);
+            }
+
+        });
         if (mItemsData.size()==0){
             initializeData();
             queryData();
@@ -162,18 +168,12 @@ public class ShopListActivity extends AppCompatActivity {
         TypedArray itemRate = getResources().obtainTypedArray(R.array.ertekelesek);
 
 
-        mItems.orderBy("ar", Query.Direction.ASCENDING).limit(queryLimit).get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot document : queryDocumentSnapshots){
-                ShoppingItem item=document.toObject(ShoppingItem.class);
-                mItemsData.add(item);
-            }
 
-        });
             for (int i = 0; i < itemsList.length; i++) {
                 mItems.add(new ShoppingItem(itemsList[i], itemsInfo[i], itemsPrice[i], itemRate.getFloat(i, 0),
-                        itemsImageResources.getResourceId(i, 0)));
+                        itemsImageResources.getResourceId(i, 0),0));
                 mItemsData.add(new ShoppingItem(itemsList[i], itemsInfo[i], itemsPrice[i], itemRate.getFloat(i, 0),
-                        itemsImageResources.getResourceId(i, 0)));
+                        itemsImageResources.getResourceId(i, 0),0));
             }
 
 

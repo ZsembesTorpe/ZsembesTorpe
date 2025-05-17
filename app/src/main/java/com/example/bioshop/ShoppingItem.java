@@ -7,14 +7,17 @@ public class ShoppingItem {
     private float rateinfo;
 
     private  int imageResource;
+    private int cartedCount;
+    private String id;
 
 
-    public ShoppingItem(String name, String info, String price, float rateinfo, int imageResource) {
+    public ShoppingItem(String name, String info, String price, float rateinfo, int imageResource,int cartedCount) {
         this.name = name;
         this.info = info;
         this.price = price;
         this.rateinfo = rateinfo;
         this.imageResource = imageResource;
+        this.cartedCount=cartedCount;
     }
 
     public ShoppingItem() {
@@ -30,7 +33,19 @@ public class ShoppingItem {
 
     public int getImageResource() {return imageResource;}
 
+    public int getCartedCount() {
+        return cartedCount;
+    }
 
+    public void setCartedCount(int cartedCount) {
+        this.cartedCount = cartedCount;
+    }
 
+    public String _getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 }
