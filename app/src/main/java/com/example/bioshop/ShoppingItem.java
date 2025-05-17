@@ -9,16 +9,16 @@ public class ShoppingItem {
     private  int imageResource;
 
 
-
     public ShoppingItem(String name, String info, String price, float rateinfo, int imageResource) {
         this.name = name;
         this.info = info;
         this.price = price;
         this.rateinfo = rateinfo;
         this.imageResource = imageResource;
-
     }
-    public ShoppingItem() {}
+
+    public ShoppingItem() {
+    }
 
     public String getName() {return name;}
 

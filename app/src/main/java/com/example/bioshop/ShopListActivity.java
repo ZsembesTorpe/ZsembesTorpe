@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.MenuItemCompat;
@@ -30,6 +31,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -37,6 +41,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -60,7 +65,7 @@ public class ShopListActivity extends AppCompatActivity {
 
     private SharedPreferences preferences;
 
-
+    private static final int queryLimit=8;
     private boolean viewRow = true;
 
     @Override
@@ -96,14 +101,32 @@ public class ShopListActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
        mFireStore=FirebaseFirestore.getInstance();
        mItems=mFireStore.collection("Items");
+        initializeData();
+       // queryData();
 
-       initializeData();
     }
+    //VALAMIÉRT A QUERYDATA MEGŐRÜL ÉS 6600+ ADATTAL FELTÖLTI AZ ADATBÁZIST, NEM TUDTAM MEGOLDANI EZT, SORRY
+/*private void queryData(){
+    mItemsData.clear();
 
+    mItems.orderBy("ar", Query.Direction.ASCENDING).limit(queryLimit).get().addOnSuccessListener(queryDocumentSnapshots -> {
+        for (QueryDocumentSnapshot document : queryDocumentSnapshots){
+            ShoppingItem item=document.toObject(ShoppingItem.class);
+            mItemsData.add(item);
+        }
+        if (mItemsData.size()==0){
+            initializeData();
+            queryData();
+        }
+        mAdapter.notifyDataSetChanged();
+    });
+
+
+}*/
 
 
     private void initializeData() {
-        // Get the resources from the XML file.
+
         String[] itemsList = getResources()
                 .getStringArray(R.array.termeknevek);
         String[] itemsInfo = getResources()
@@ -114,21 +137,28 @@ public class ShopListActivity extends AppCompatActivity {
                 getResources().obtainTypedArray(R.array.termekkepek);
         TypedArray itemRate = getResources().obtainTypedArray(R.array.ertekelesek);
 
-        // Clear the existing data (to avoid duplication).
-        mItemsData.clear();
 
-        // Create the ArrayList of Sports objects with the titles and
-        // information about each sport.
-        for (int i = 0; i < itemsList.length; i++) {
-            mItemsData.add(new ShoppingItem(itemsList[i], itemsInfo[i], itemsPrice[i], itemRate.getFloat(i, 0),
-                    itemsImageResources.getResourceId(i, 0)));
-        }
+        mItems.orderBy("ar", Query.Direction.ASCENDING).limit(queryLimit).get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot document : queryDocumentSnapshots){
+                ShoppingItem item=document.toObject(ShoppingItem.class);
+                mItemsData.add(item);
+            }
 
-        // Recycle the typed array.
+        });
+            for (int i = 0; i < itemsList.length; i++) {
+                mItems.add(new ShoppingItem(itemsList[i], itemsInfo[i], itemsPrice[i], itemRate.getFloat(i, 0),
+                        itemsImageResources.getResourceId(i, 0)));
+                mItemsData.add(new ShoppingItem(itemsList[i], itemsInfo[i], itemsPrice[i], itemRate.getFloat(i, 0),
+                        itemsImageResources.getResourceId(i, 0)));
+            }
+
+
         itemsImageResources.recycle();
 
-        // Notify the adapter of the change.
-        //mAdapter.notifyDataSetChanged();
+
+        mAdapter.notifyDataSetChanged();
+
+
     }
 
     @Override
