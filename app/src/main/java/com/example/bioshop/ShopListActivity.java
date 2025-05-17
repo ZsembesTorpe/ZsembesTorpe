@@ -91,8 +91,11 @@ public class ShopListActivity extends AppCompatActivity {
 
         mFirestore=FirebaseFirestore.getInstance();
         mItems=mFirestore.collection("Items");
-        initializeData();
+
         queryData();
+
+
+
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_POWER_CONNECTED);
         filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
@@ -129,7 +132,7 @@ public class ShopListActivity extends AppCompatActivity {
         TypedArray itemImage= getResources().obtainTypedArray(R.array.termekkepek);
         TypedArray itemsRate= getResources().obtainTypedArray(R.array.ertekelesek);
 
-   // mItemList.clear();
+
         for (int i = 0; i < itemList.length; i++) {
 
             mItems.add(new ShoppingItem(
@@ -138,7 +141,6 @@ public class ShopListActivity extends AppCompatActivity {
                     itemPrice[i],
                     itemsRate.getFloat(i,0),
                     itemImage.getResourceId(i,0),0));
-
         }
 
         itemImage.recycle();
@@ -149,20 +151,20 @@ public class ShopListActivity extends AppCompatActivity {
         mItemsData.clear();
 
 
-        mItems.orderBy("name", Query.Direction.DESCENDING).limit(queryLimit).get().addOnSuccessListener(queryDocumentSnapshots -> {
-            for (QueryDocumentSnapshot document:queryDocumentSnapshots){
-                ShoppingItem item=document.toObject(ShoppingItem.class);
-               item.setId(document.getId());
+        mItems.orderBy("name").limit(queryLimit).get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot document:queryDocumentSnapshots) {
+                ShoppingItem item = document.toObject(ShoppingItem.class);
                 mItemsData.add(item);
+
+
             }
-            queryLimit=10;
             if (mItemsData.size()==0){
                 initializeData();
                 queryData();
             }
-
+            mAdapter.notifyDataSetChanged();
         });
-        mAdapter.notifyDataSetChanged();
+
 
     }
     @Override
@@ -247,13 +249,13 @@ public class ShopListActivity extends AppCompatActivity {
         return super.onPrepareOptionsMenu(menu);
     }
     public void updateAlertIcon(ShoppingItem item) {
-        if (item == null) {
+    /*    if (item == null) {
 
             cartItems = 0;
             countTextView.setText("");
             redCircle.setVisibility(View.GONE);
         }
-
+*/
         cartItems = (cartItems + 1);
         if (0<cartItems) {
             countTextView.setText(String.valueOf(cartItems));
@@ -261,15 +263,15 @@ public class ShopListActivity extends AppCompatActivity {
             countTextView.setText("");
         }
         redCircle.setVisibility((cartItems > 0) ? View.VISIBLE : View.GONE);
-        mItems.document(item._getId()).update("cartedCount", item.getCartedCount() + 1)
+      /*  mItems.document(item._getId()).update("cartedCount", item.getCartedCount() + 1)
                 .addOnFailureListener(fail -> {
                     Toast.makeText(this, "Item " + item._getId() + " cannot be changed.", Toast.LENGTH_LONG).show();
                 });
 
-    mNotH.send(item.getName());
-    queryData();
+    mNotH.send(item.getName());*/
+
     }
-    public void deleteItem(ShoppingItem item){
+   public void deleteItem(ShoppingItem item){
         DocumentReference ref=mItems.document(item._getId());
         ref.delete()
                 .addOnSuccessListener(success -> {
@@ -278,9 +280,11 @@ public class ShopListActivity extends AppCompatActivity {
                 .addOnFailureListener(fail -> {
                     Toast.makeText(this, "Item " + item._getId() + " cannot be deleted.", Toast.LENGTH_LONG).show();
                 });
-        queryData();
+
         mNotH.cancel();
     }
+
+
 
 
     @Override

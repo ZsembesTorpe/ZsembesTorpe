@@ -33,17 +33,13 @@ public class ShoppingItemAdapter extends RecyclerView.Adapter<ShoppingItemAdapte
     private Context mContext;
     private int lastPosition = -1;
 
-    private boolean isCartView = false;
 
-    public ShoppingItemAdapter(Context context, ArrayList<ShoppingItem> itemsData, boolean isCartView) {
+
+    public ShoppingItemAdapter(Context context, ArrayList<ShoppingItem> itemsData) {
         this.mShoppingItemData = itemsData;
         this.mShoppingItemDataAll = itemsData;
         this.mContext = context;
-        this.isCartView = isCartView;
-    }
 
-    public ShoppingItemAdapter(Context context, ArrayList<ShoppingItem> itemsData) {
-        this(context, itemsData, false);
     }
 
     @Override
@@ -115,7 +111,7 @@ public class ShoppingItemAdapter extends RecyclerView.Adapter<ShoppingItemAdapte
         private TextView mPriceText;
         private ImageView mItemImage;
         private RatingBar mRatingBar;
-        private TextView quantityText;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -126,7 +122,7 @@ public class ShoppingItemAdapter extends RecyclerView.Adapter<ShoppingItemAdapte
             mItemImage = itemView.findViewById(R.id.itemImage);
             mRatingBar = itemView.findViewById(R.id.ratingBar);
 
-            quantityText = itemView.findViewById(R.id.quantityText);
+
         }
 
         public void bindTo(ShoppingItem currentItem) {
@@ -137,16 +133,16 @@ public class ShoppingItemAdapter extends RecyclerView.Adapter<ShoppingItemAdapte
 
             Glide.with(mContext).load(currentItem.getImageResource()).into(mItemImage);
 
-            View addToCartBtn = itemView.findViewById(R.id.add_to_kosar);
+          /*  View addToCartBtn = itemView.findViewById(R.id.add_to_kosar);
             View deleteBtn = itemView.findViewById(R.id.delete);
 
 
             if(mContext!=null){
                 addToCartBtn.setOnClickListener(view -> ((ShopListActivity) mContext).updateAlertIcon(currentItem));}
                 if(mContext!=null){
-                deleteBtn.setOnClickListener(view -> ((ShopListActivity) mContext).deleteItem(currentItem));}
+                deleteBtn.setOnClickListener(view -> ((ShopListActivity) mContext).deleteItem(currentItem));}*/
             }
         }
-    };
+    }
 
 
