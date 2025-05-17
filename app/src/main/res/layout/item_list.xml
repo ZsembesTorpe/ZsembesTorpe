@@ -4,8 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@color/bc_color"
     android:layout_margin="8dp"
-    android:elevation="4dp"
-    android:radius="8dp">
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/itemImage"
-            android:padding="8dp"
+
             android:text="@string/item_placeholder"
             android:textColor="?android:textColorSecondary" />
 
@@ -37,8 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/itemTitle"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+
             android:isIndicator="true" />
 
         <TextView
@@ -47,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ratingBar"
-            android:padding="8dp"
+
             android:text="@string/item_info_placeholder" />
         <TextView
             android:id="@+id/quantityText"
@@ -64,8 +62,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/subTitle"
-            android:layout_marginBottom="12dp"
-            android:padding="8dp"
+
+
             android:text="ár"
             android:textColor="@color/black"
             android:layout_centerHorizontal="true"/>

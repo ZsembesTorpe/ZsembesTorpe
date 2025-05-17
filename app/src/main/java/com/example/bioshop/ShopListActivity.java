@@ -55,7 +55,8 @@ public class ShopListActivity extends AppCompatActivity {
     private ArrayList<ShoppingItem> mItemsData;
     private ShoppingItemAdapter mAdapter;
 
-
+    private FirebaseFirestore mFireStore;
+    private CollectionReference mItems;
 
     private SharedPreferences preferences;
 
@@ -81,6 +82,8 @@ public class ShopListActivity extends AppCompatActivity {
             gridNumber = preferences.getInt("gridNum", 1);
         }*/
 
+
+
         // recycle view
         mRecyclerView = findViewById(R.id.recyclerView);
         // Set the Layout Manager.
@@ -91,9 +94,13 @@ public class ShopListActivity extends AppCompatActivity {
         // Initialize the adapter and set it to the RecyclerView.
         mAdapter = new ShoppingItemAdapter(this, mItemsData);
         mRecyclerView.setAdapter(mAdapter);
-        // Get the data.
-        initializeData();
+       mFireStore=FirebaseFirestore.getInstance();
+       mItems=mFireStore.collection("Items");
+
+       initializeData();
     }
+
+
 
     private void initializeData() {
         // Get the resources from the XML file.
@@ -121,7 +128,7 @@ public class ShopListActivity extends AppCompatActivity {
         itemsImageResources.recycle();
 
         // Notify the adapter of the change.
-        mAdapter.notifyDataSetChanged();
+        //mAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -166,7 +173,7 @@ public class ShopListActivity extends AppCompatActivity {
                 if (viewRow) {
                     changeSpanCount(item, R.drawable.baseline_grid_view_24, 1);
                 } else {
-                    changeSpanCount(item, R.drawable.grid_row, 3);
+                    changeSpanCount(item, R.drawable.grid_row, 2);
                 }
                 return true;
             default:
