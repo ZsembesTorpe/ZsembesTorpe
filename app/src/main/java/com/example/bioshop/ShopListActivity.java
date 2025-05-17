@@ -92,7 +92,7 @@ public class ShopListActivity extends AppCompatActivity {
         mFirestore=FirebaseFirestore.getInstance();
         mItems=mFirestore.collection("Items");
         initializeData();
-       // queryData();
+        queryData();
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_POWER_CONNECTED);
         filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
@@ -131,12 +131,7 @@ public class ShopListActivity extends AppCompatActivity {
 
    // mItemList.clear();
         for (int i = 0; i < itemList.length; i++) {
-         /*   mItemsData.add(new ShoppingItem(
-                    itemList[i],
-                    iteminfo[i],
-                    itemPrice[i],
-                    itemsRate.getFloat(i,0),
-                    itemImage.getResourceId(i,0),0));*/
+
             mItems.add(new ShoppingItem(
                     itemList[i],
                     iteminfo[i],
@@ -167,7 +162,7 @@ public class ShopListActivity extends AppCompatActivity {
             }
             mAdapter.notifyDataSetChanged();
         });
-initializeData();
+
 
     }
     @Override
@@ -208,7 +203,7 @@ initializeData();
                 Log.d(LOG_TAG,"kosár megnyomva");
                 return true;
             case R.id.view_selector:
-                Log.d(LOG_TAG,"get logged");
+                Log.d(LOG_TAG,"nézetváltás megnyomva");
                 if (viewRow){
                     changeSpanCount(item,R.drawable.baseline_grid_view_24,1);
                 }else {

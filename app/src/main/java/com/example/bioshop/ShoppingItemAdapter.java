@@ -141,8 +141,10 @@ public class ShoppingItemAdapter extends RecyclerView.Adapter<ShoppingItemAdapte
             View deleteBtn = itemView.findViewById(R.id.delete);
 
 
-
-                deleteBtn.setOnClickListener(view -> ((ShopListActivity) mContext).deleteItem(currentItem));
+            if(mContext!=null){
+                addToCartBtn.setOnClickListener(view -> ((ShopListActivity) mContext).updateAlertIcon(currentItem));}
+                if(mContext!=null){
+                deleteBtn.setOnClickListener(view -> ((ShopListActivity) mContext).deleteItem(currentItem));}
             }
         }
     };
