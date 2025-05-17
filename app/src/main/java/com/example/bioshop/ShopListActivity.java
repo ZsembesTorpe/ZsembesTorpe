@@ -134,13 +134,12 @@ public class ShopListActivity extends AppCompatActivity {
 
 
         for (int i = 0; i < itemList.length; i++) {
-
             mItems.add(new ShoppingItem(
                     itemList[i],
                     iteminfo[i],
                     itemPrice[i],
                     itemsRate.getFloat(i,0),
-                    itemImage.getResourceId(i,0),0));
+                    itemImage.getResourceId(i,0)));
         }
 
         itemImage.recycle();
@@ -152,6 +151,7 @@ public class ShopListActivity extends AppCompatActivity {
 
 
         mItems.orderBy("name").limit(queryLimit).get().addOnSuccessListener(queryDocumentSnapshots -> {
+
             for (QueryDocumentSnapshot document:queryDocumentSnapshots) {
                 ShoppingItem item = document.toObject(ShoppingItem.class);
                 mItemsData.add(item);
@@ -271,7 +271,7 @@ public class ShopListActivity extends AppCompatActivity {
     mNotH.send(item.getName());*/
 
     }
-   public void deleteItem(ShoppingItem item){
+ /*  public void deleteItem(ShoppingItem item){
         DocumentReference ref=mItems.document(item._getId());
         ref.delete()
                 .addOnSuccessListener(success -> {
@@ -282,7 +282,7 @@ public class ShopListActivity extends AppCompatActivity {
                 });
 
         mNotH.cancel();
-    }
+    }*/
 
 
 

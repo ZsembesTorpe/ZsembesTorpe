@@ -20,7 +20,7 @@ public class CartManager {
         return instance;
     }
 
-    public void addItem(ShoppingItem item) {
+   /* public void addItem(ShoppingItem item) {
         for (ShoppingItem cartItem : cartItems) {
             if (cartItem.getName().equals(item.getName())) {
                 cartItem.setCartedCount(cartItem.getCartedCount() + 1);
@@ -38,7 +38,7 @@ public class CartManager {
         );
 
         cartItems.add(newItem);
-    }
+    }*/
 
     public List<ShoppingItem> getCartItems() {
         return cartItems;
@@ -48,7 +48,7 @@ public class CartManager {
         cartItems.clear();
     }
 
-    public float getTotalPrice() {
+   /* public float getTotalPrice() {
         float total = 0;
         for (ShoppingItem item : cartItems) {
             try {
@@ -59,5 +59,5 @@ public class CartManager {
             }
         }
         return total;
-    }
+    }*/
 }
