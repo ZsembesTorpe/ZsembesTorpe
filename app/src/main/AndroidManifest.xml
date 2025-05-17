@@ -17,8 +17,10 @@
         <receiver
             android:name=".AlarmReceiver"
             android:enabled="true"
-            android:exported="false"></receiver>
-
+            android:exported="true" />
+        <service
+            android:name=".NotificationJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
         <activity
             android:name=".ShopListActivity"
             android:exported="false" />

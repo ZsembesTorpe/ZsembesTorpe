@@ -9,6 +9,12 @@
     <string name="vissza">vissza</string>
     <string name="item_placeholder">Leírás</string>
     <string name="item_info_placeholder">Leírás a termékről</string>
+    <string name="temaleiras">Ez itt a beállítások fül... Igen, csak a témát tudod megváltoztatni</string>
+    <string name="temak">Téma: ☀️/🌫️</string>
+    <string name="tema_vilagos">Téma beállítása ☀️</string>
+    <string name="tema_sotet">Téma beállítása 🌫️</string>
+    <string name="temavaltas">téma váltás</string>
+    <string name="megse">Mégse</string>
 
 
     <string-array name="termeknevek">

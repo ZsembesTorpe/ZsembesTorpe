@@ -127,13 +127,13 @@ public class ShoppingItemAdapter extends RecyclerView.Adapter<ShoppingItemAdapte
             itemView.findViewById(R.id.add_to_kosar).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ((ShopListActivity)mContext).updateAlertIcon(currentItem);
+                    ((ShopListActivity)mContext).updateAlertIcon();
                 }
             });
             itemView.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ((ShopListActivity)mContext).deleteItem(currentItem);
+                    ((ShopListActivity)mContext).deleteItem();
                 }
             });
 

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TemaBeallitasok"
+    android:fillViewport="true"
+    android:background="@color/item_list_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="40dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:gravity="center_horizontal">
+
+
+        <TextView
+            android:id="@+id/beallitas_cim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/temak"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+             />
+
+
+        <TextView
+            android:id="@+id/tema_leiras_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/temaleiras"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+             />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="changeTheme"
+                android:text="@string/temavaltas"
+                tools:ignore="OnClick,UsingOnClickInXml" />
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:onClick="cancel"
+                android:text="@string/megse"
+                tools:ignore="OnClick,UsingOnClickInXml"
+                android:backgroundTint="@color/red"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
