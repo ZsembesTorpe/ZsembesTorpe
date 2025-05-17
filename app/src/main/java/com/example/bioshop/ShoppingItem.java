@@ -16,7 +16,7 @@ public class ShoppingItem {
         this.price = price;
         this.rateinfo = rateinfo;
         this.imageResource = imageResource;
-       // this.cartedCount=cartedCount;
+        this.cartedCount=cartedCount;
     }
     public ShoppingItem() {}
 

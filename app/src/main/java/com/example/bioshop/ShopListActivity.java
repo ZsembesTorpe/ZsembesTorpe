@@ -160,9 +160,9 @@ public class ShopListActivity extends AppCompatActivity {
                 initializeData();
                 queryData();
             }
-            mAdapter.notifyDataSetChanged();
-        });
 
+        });
+        mAdapter.notifyDataSetChanged();
 
     }
     @Override
