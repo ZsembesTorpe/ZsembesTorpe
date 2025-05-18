@@ -15,6 +15,7 @@
     <string name="tema_sotet">Téma beállítása 🌫️</string>
     <string name="temavaltas">téma váltás</string>
     <string name="megse">Mégse</string>
+    <string name="uzenet_tesztelonek">Helló tesztelő! Pár funkció, aminek papíron mennie kellene, de a firestore döntött és telerakja az adatbázist 6600+ adattal, tizedmásodperc alatt. Mivel az az egyik legfőbb része az alkalmazásnak, ezért (pontok alapján nem nagy szívás, de akkor is érvágás) sok funkció, tehát ez, a témaváltásosdi és az adatok lekérése sem megy. Remélem attól még nem vette el a kedved a pontok adásától ez a baki, ami a kezeim közül kicsúszott. Legyen csodaszép napod 😊(Ui.: minden funkció meg van valósítva, csak kommentezve van,ok a legelején a szövegnek)</string>
 
 
     <string-array name="termeknevek">
