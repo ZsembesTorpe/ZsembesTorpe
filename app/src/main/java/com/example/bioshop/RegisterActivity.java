@@ -101,7 +101,7 @@ mAuth.createUserWithEmailAndPassword(emailS,password).addOnCompleteListener(this
         finish();
         overridePendingTransition(R.anim.animate_fade_enter,R.anim.animate_fade_exit);
     }
-    private void shopping(/*felhasználói preferenciák alapján lesz ez kitöltve*/){
+    private void shopping(){
         Intent intent =new Intent(this, ShopListActivity.class);
         intent.putExtra("SECRET_KEY",SECRET_KEY);
         startActivity(intent);

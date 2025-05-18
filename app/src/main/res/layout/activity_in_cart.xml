@@ -11,7 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-
+    <TextView
+        android:id="@+id/disclaimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Helló tesztelő! Pár funkció, aminek papíron mennie kellene, de a firestore döntött és telerakja az adatbázist 6600+ adattal, tizedmásodperc alatt. Mivel az az egyik legfőbb része az alkalmazásnak, ezért (pontok alapján nem nagy szívás, de akkor is érvágás) sok funkció, tehát ez, a témaváltásosdi és az adatok lekérése sem megy. Remélem attól még nem vette el a kedved a pontok adásától ez a baki, ami a kezeim közül kicsúszott. Legyen csodaszép napod 😊(Ui.: minden funkció meg van valósítva, csak kommentezve van,ok a legelején a szövegnek)"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="end" />
     <TextView
         android:id="@+id/teljes_osszeg"
         android:layout_width="match_parent"

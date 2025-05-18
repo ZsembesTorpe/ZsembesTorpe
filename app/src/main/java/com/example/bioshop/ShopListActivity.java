@@ -118,14 +118,14 @@ private NotificationHandler mNotHand;
         this.registerReceiver(pwR,filter);
 
 
-        mNotHand=new NotificationHandler(this);
-        mAlaMana=(AlarmManager) getSystemService(ALARM_SERVICE);
-        mJbs=(JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+     //   mNotHand=new NotificationHandler(this);
+    //    mAlaMana=(AlarmManager) getSystemService(ALARM_SERVICE);
+      //  mJbs=(JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
 
-       setAlarmManager();
-        setJobScheduler();
+     //  setAlarmManager();
+       // setJobScheduler();
 
-        registerReceiver(themeChanger,new IntentFilter("com.example.bioshop.TEMA_VALTOTT"));
+     //   registerReceiver(themeChanger,new IntentFilter("com.example.bioshop.TEMA_VALTOTT"));
     }
     BroadcastReceiver pwR=new BroadcastReceiver() {
         @Override
@@ -235,11 +235,12 @@ if (mItemsData.size()==0){
             case R.id.settings:
                 Log.d(LOG_TAG, "Setting clicked!");
                 Intent intent_beallitasok=new Intent(this,TemaBeallitasok.class);
-                finish();
+               startActivity(intent_beallitasok);
                 return true;
             case R.id.cart:
                 Log.d(LOG_TAG, "Cart clicked!");
                 Intent intent_cart=new Intent(this,CartActivity.class);
+                startActivity(intent_cart);
                 return true;
             case R.id.view_selector:
                 if (viewRow) {
@@ -323,7 +324,7 @@ if (mItemsData.size()==0){
 
     }
     private void updateItem(ShoppingItem item){ }
-private void setAlarmManager(){
+/*private void setAlarmManager(){
         long idokoz=AlarmManager.INTERVAL_HOUR;
         long tt= SystemClock.elapsedRealtime()+idokoz;
 Intent intent = new Intent(this, AlarmReceiver.class);
@@ -342,5 +343,5 @@ mAlaMana.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,tt,idokoz,pi);
                 .setOverrideDeadline(hardDL);
         mJbs.schedule(bobketto.build());
         //mJbs.cancel(0);
-    }
+    }*/
 }

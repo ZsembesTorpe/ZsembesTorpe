@@ -18,22 +18,22 @@ public class TemaBeallitasok extends AppCompatActivity {
         }
     };
 
-    @SuppressLint("UnspecifiedRegisterReceiverFlag")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         TemaSeged.temaValaszt(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tema_valtas);
 
-        registerReceiver(themeChangeReceiver, new IntentFilter("com.example.bioshop.TEMA_VALTOZOTT"));
+       // registerReceiver(themeChangeReceiver, new IntentFilter(String.valueOf(RECEIVER_EXPORTED)));
     }
 
 
     public void changeTheme(View view) {
         TemaSeged.temaValto(this);
 
-        Intent intent = new Intent("com.example.bioshop.TEMA_VALTOZOTT");
-        sendBroadcast(intent);
+      Intent intent = new Intent("com.example.bioshop.TEMA_VALTOZOTT");
+       sendBroadcast(intent);
 
         recreate();
     }

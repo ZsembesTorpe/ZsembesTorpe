@@ -64,8 +64,8 @@ public class CartActivity extends AppCompatActivity {
             finish();
         });
 
-        Button backButton = findViewById(R.id.buy_from_cart_button);
-        backButton.setOnClickListener(view -> finish());
+        Button backButton = findViewById(R.id.back_from_cart_button);
+        backButton.setOnClickListener(view -> {finish();});
 
 
     }
