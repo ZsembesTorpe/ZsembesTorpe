@@ -9,17 +9,19 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/kosar_vasarlas"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="200dp"
         android:layout_weight="1" />
+
     <TextView
         android:id="@+id/disclaimer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="end"
         android:padding="16dp"
         android:text="@string/uzenet_tesztelonek"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:gravity="end" />
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/teljes_osszeg"
         android:layout_width="match_parent"
@@ -36,8 +38,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
+
+        android:layout_marginBottom="48dp"
         android:weightSum="2">
         <Button
             android:id="@+id/buy_from_cart_button"
